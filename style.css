@@ -17,6 +17,15 @@ body {
     overflow: hidden;
 }
 
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
 #basket {
     position: absolute;
     bottom: 0;

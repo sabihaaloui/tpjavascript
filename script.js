@@ -1,5 +1,6 @@
 const basket = document.getElementById("basket");
 const item = document.getElementById("item");
+const scoreDisplay = document.getElementById("score");
 
 let basketPosition = 50; // Percentage
 let itemPosition = 0; // Percentage
@@ -26,8 +27,13 @@ function dropItem() {
         basketPosition <= (parseInt(item.style.left) + 10) &&
         basketPosition >= (parseInt(item.style.left) - 10)) {
         score++;
+        scoreDisplay.textContent = "Score: " + score;
         resetItem();
     } else if (itemPosition > 100) {
+        // If item is not caught, reset score and restart
+        alert("You missed! Starting over.");
+        score = 0;
+        scoreDisplay.textContent = "Score: " + score;
         resetItem();
     }
 }
