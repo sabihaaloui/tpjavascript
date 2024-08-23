@@ -17,9 +17,71 @@ body {
     overflow: hidden;
 }
 
-#score {
+#controls {
     position: absolute;
     top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.start {
+    background-color: #4CAF50; /* Green */
+}
+
+.stop {
+    background-color: #f44336; /* Red */
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-btn {
+    background-color: #FFC107; /* Yellow */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content .dropdown-item {
+    color: black;
+    padding: 12px 16px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    background-color: #f1f1f1;
+}
+
+.dropdown-content .dropdown-item:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#score {
+    position: absolute;
+    top: 50px;
     left: 10px;
     font-size: 20px;
     font-weight: bold;
@@ -39,11 +101,43 @@ body {
 
 #item {
     position: absolute;
-    top: -50px;
+    top: -30px; /* Start above the game area */
     left: 50%;
     transform: translateX(-50%);
     width: 30px;
     height: 30px;
     background-color: #ff3333;
     border-radius: 50%;
+}
+
+#congratulations {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffdfdf;
+    padding: 20px;
+    border: 3px solid #ff3333;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff3333;
+    text-align: center;
+    display: none;
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes celebration {
+    0% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.1); }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+#congratulations.show {
+    display: block;
+    animation: celebration 2s ease-out;
 }
