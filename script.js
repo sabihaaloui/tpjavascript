@@ -15,10 +15,10 @@ let score = 0;
 let gameInterval;
 let dropSpeed = 50; // Default speed
 
-// Ask for the player's name at the beginning
+// isem player
 let playerName = prompt("Veuillez saisir votre nom pour commencer:");
 
-// Set default name if no input is provided
+// par defaut isem sabiha
 if (!playerName) {
     playerName = "Sabiha";
 }
@@ -37,21 +37,21 @@ document.addEventListener("keydown", function(event) {
 
 function dropItem() {
     itemPosition += 2;
-    item.style.top = itemPosition + "px"; // Use px for top positioning
+    item.style.top = itemPosition + "px"; // type en px
 
-    // Check if item reaches the basket
-    if (itemPosition >= 350 && // Adjusted to fit the game area
+    // planche  cherche la bole
+    if (itemPosition >= 350 && // t7arek l planche
         itemPosition <= 370 &&
         basketPosition <= (parseInt(item.style.left) + 10) &&
         basketPosition >= (parseInt(item.style.left) - 10)) {
         score++;
         scoreDisplay.textContent = `Bienvenue : ${playerName} | Score: ${score}`;
         
-        // Check score milestones and display alerts
+        // calcul score
         if (score === 5) {
             championName.textContent = playerName;
             congratulations.classList.add("show");
-            setTimeout(() => congratulations.classList.remove("show"), 2000); // Hide after 2 seconds
+            setTimeout(() => congratulations.classList.remove("show"), 2000); // avant  2 seconds
         } else if (score === 10) {
             alert(`Excellent ${playerName}! Vous avez atteint 10 points.`);
         } else if (score === 20) {
@@ -60,7 +60,7 @@ function dropItem() {
         
         resetItem();
     } else if (itemPosition > 400) { // Adjusted to fit the game area
-        // If item is not caught, reset score and restart
+        // tfassa5 le score et t3awed
         alert("Vous avez manqué! Recommençons.");
         score = 0;
         scoreDisplay.textContent = `Bienvenue : ${playerName} | Score: ${score}`;
@@ -69,7 +69,7 @@ function dropItem() {
 }
 
 function resetItem() {
-    itemPosition = -30; // Reset item to start above the game area
+    itemPosition = -30; // restart 
     item.style.top = itemPosition + "px"; // Use px for top positioning
     item.style.left = Math.random() * 90 + "%"; // Random horizontal position
 }
@@ -85,33 +85,33 @@ function stopGame() {
     gameInterval = null;
 }
 
-// Event listeners for buttons
+// Event listeners  buttons
 startButton.addEventListener("click", startGame);
 stopButton.addEventListener("click", stopGame);
 
-// Event listener for dropdown items
+// Event listener 
 dropdownItems.forEach(item => {
     item.addEventListener("click", function() {
         const speed = this.getAttribute("data-speed");
         let speedText = "";
         switch (speed) {
             case "slow":
-                dropSpeed = 100; // Slower speed
+                dropSpeed = 100; 
                 speedText = "Lente";
                 break;
             case "medium":
-                dropSpeed = 50; // Medium speed
+                dropSpeed = 50;
                 speedText = "Moyenne";
                 break;
             case "fast":
-                dropSpeed = 25; // Faster speed
+                dropSpeed = 25; 
                 speedText = "Rapide";
                 break;
         }
-        dropdownButton.textContent = speedText; // Update button text with selected speed
+        dropdownButton.textContent = speedText; // Update button ili 5tartha
         if (gameInterval) {
             stopGame();
-            startGame(); // Restart game with new speed
+            startGame(); // Restart game 
         }
     });
 });

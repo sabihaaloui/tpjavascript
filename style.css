@@ -37,11 +37,11 @@ body {
 }
 
 .start {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50; 
 }
 
 .stop {
-    background-color: #f44336; /* Red */
+    background-color: #f44336; 
 }
 
 .dropdown {
@@ -49,7 +49,7 @@ body {
 }
 
 .dropdown-btn {
-    background-color: #FFC107; /* Yellow */
+    background-color: #FFC107; 
 }
 
 .dropdown-content {
@@ -101,7 +101,7 @@ body {
 
 #item {
     position: absolute;
-    top: -30px; /* Start above the game area */
+    top: -30px; 
     left: 50%;
     transform: translateX(-50%);
     width: 30px;
